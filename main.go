@@ -72,6 +72,10 @@ func NewSimpleLogic(l Logger, ds DataStore) SimpleLogic {
 	}
 }
 
+type Logic interface {
+	SayHello(userID string) (string, error)
+}
+
 func main() {
 	fmt.Println("Hello world!")
 }
