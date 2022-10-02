@@ -27,6 +27,14 @@ func NewSimpleDataStore() SimpleDataStore {
 	}
 }
 
+type DataStore interface {
+	UserNameForID(userID string) (string, bool)
+}
+
+type Logger interface {
+	Log(message string)
+}
+
 func main() {
 	fmt.Println("Hello world!")
 }
