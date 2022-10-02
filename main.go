@@ -94,6 +94,13 @@ func (c Controller) SayHello(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(message))
 }
 
+func NewController(l Logger, logic Logic) Controller {
+	return Controller{
+		l:     l,
+		logic: logic,
+	}
+}
+
 func main() {
 	fmt.Println("Hello world!")
 }
