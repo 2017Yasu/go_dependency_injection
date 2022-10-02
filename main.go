@@ -102,5 +102,10 @@ func NewController(l Logger, logic Logic) Controller {
 }
 
 func main() {
-	fmt.Println("Hello world!")
+	l := LoggerAdapter(LogOutput)
+	ds := NewSimpleDataStore()
+	logic := NewSimpleLogic(l, ds)
+	c := NewController(l, logic)
+	http.HandleFunc("/hello", c.SayHello)
+	http.ListenAndServe(":8080", nil)
 }
