@@ -17,6 +17,16 @@ func (sds SimpleDataStore) UserNameForID(userID string) (string, bool) {
 	return name, ok
 }
 
+func NewSimpleDataStore() SimpleDataStore {
+	return SimpleDataStore{
+		userData: map[string]string{
+			"1": "Fred",
+			"2": "Mary",
+			"3": "Pat",
+		},
+	}
+}
+
 func main() {
 	fmt.Println("Hello world!")
 }
